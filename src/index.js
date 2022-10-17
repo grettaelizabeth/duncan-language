@@ -11,10 +11,13 @@ function fetchDict(textEntryDiv) {
      .then((text) => {
         console.log('AAA')
         const commaSplit = text.split(',')
-        const colonSplit = commaSplit[1].split(':')
-        const phonetic = colonSplit[1]
-        phonetic = phonetic.substring(1, phonetic.length - 1)
         console.log('BBB')
+        const colonSplit = commaSplit[1].split(':')
+        console.log('CCC')
+        const phonetic = colonSplit[1]
+        console.log('DDD')
+        phonetic = phonetic.substring(1, phonetic.length - 1)
+        console.log('EEE')
         console.log(`phonetic: ${phonetic}`)
      })
      .catch((error) => { dictText = `Could not fetch dictionary: ${error}` });
