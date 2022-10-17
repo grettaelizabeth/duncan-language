@@ -17,4 +17,4 @@ function fetchDict() {
 let textEntryDiv = document.getElementById('text-entry')
 textEntryDiv.innerHTML += '<p> frog and toad </p>'
 let fullText = fetchDict()
-textEntryDiv.innerHTML += `<p> $fullText </p>`
+textEntryDiv.innerHTML += `<p> ${fullText} </p>`
