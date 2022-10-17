@@ -10,7 +10,7 @@ function fetchDict() {
       console.log('A')
       return response.text();
      })
-     .then((text) => { console.log('B'); dictText = text })
+     .then((text) => { console.log('B'); dictText += `OHAI ${text} OHAI` })
      .catch((error) => { console.log('C'); dictText = `Could not fetch dictionary: ${error}` });
     return dictText
 }
