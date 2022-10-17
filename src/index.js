@@ -20,4 +20,4 @@ function fetchDict(textEntryDiv) {
 
 let textEntryDiv = document.getElementById('text-entry')
 textEntryDiv.innerHTML += '<p> frog and toad </p>'
-fetchDict()
+fetchDict(textEntryDiv)
