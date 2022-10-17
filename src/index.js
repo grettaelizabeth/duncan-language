@@ -7,10 +7,11 @@ function fetchDict() {
       if (!response.ok) {
        throw new Error(`HTTP error: ${response.status}`);
       }
+      console.log('A')
       return response.text();
      })
-     .then((text) => { dictText = text })
-     .catch((error) => { dictText = `Could not fetch dictionary: ${error}` });
+     .then((text) => { console.log('B'); dictText = text })
+     .catch((error) => { console.log('C'); dictText = `Could not fetch dictionary: ${error}` });
     return dictText
 }
 
