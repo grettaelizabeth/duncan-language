@@ -1,5 +1,3 @@
-// textEntryDiv.innerHTML += `${fruitPhonetics}`
-
 function fetchDict(textEntryDiv) {
     fetch('https://api.dictionaryapi.dev/api/v2/entries/en/fruit')
      .then((response) => {
@@ -9,16 +7,12 @@ function fetchDict(textEntryDiv) {
       return response.text();
      })
      .then((text) => {
-        console.log('AAA')
         const commaSplit = text.split(',')
-        console.log('BBB')
         const colonSplit = commaSplit[1].split(':')
-        console.log('CCC')
         const phonetic = colonSplit[1]
-        console.log('DDD')
-        const trimmedPhonetic = phonetic.substring(1, phonetic.length - 1)
-        console.log('EEE')
+        const trimmedPhonetic = phonetic.substring(2, phonetic.length - 2)
         console.log(`phonetic: ${trimmedPhonetic}`)
+        textEntryDiv.innerHTML += `<p> ${trimmedPhonetic} </p>`
      })
      .catch((error) => { dictText = `Could not fetch dictionary: ${error}` });
 }
