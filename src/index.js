@@ -6,15 +6,16 @@ function fetchDict(textEntryDiv) {
       if (!response.ok) {
        throw new Error(`HTTP error: ${response.status}`);
       }
-      console.log('A')
       return response.text();
      })
      .then((text) => {
-        console.log(`BBB`)
-        const myArray = text.split(',')
-        console.log(`CCC ${myArray[1]}`)
+        const commaSplit = text.split(',')
+        const colonSplit = ${commaSplit[1]}.split(':')
+        const phonetic = ${colonSplit[1]}
+        phonetic = phonetic.substring(1, phonetic.length - 1)
+        console.log(`phonetic: ${phonetic}`)
      })
-     .catch((error) => { console.log('D'); dictText = `Could not fetch dictionary: ${error}` });
+     .catch((error) => { dictText = `Could not fetch dictionary: ${error}` });
 }
 
 let textEntryDiv = document.getElementById('text-entry')
