@@ -1,6 +1,7 @@
 // textEntryDiv.innerHTML += `${fruitPhonetics}`
 
 function fetchDict() {
+    let dictText = 'still empty';
     fetch('https://api.dictionaryapi.dev/api/v2/entries/en/fruit')
      .then((response) => {
       if (!response.ok) {
@@ -8,8 +9,9 @@ function fetchDict() {
       }
       return response.text();
      })
-     .then((text) => return text)
-     .catch((error) => return `Could not fetch dictionary: ${error}`);
+     .then((text) => { dictText = text })
+     .catch((error) => { dictText = `Could not fetch dictionary: ${error}` });
+    return dictText
 }
 
 let textEntryDiv = document.getElementById('text-entry')
