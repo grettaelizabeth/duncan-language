@@ -10,8 +10,8 @@ function fetchDict(textEntryDiv) {
      })
      .then((text) => {
         const commaSplit = text.split(',')
-        const colonSplit = ${commaSplit[1]}.split(':')
-        const phonetic = ${colonSplit[1]}
+        const colonSplit = commaSplit[1].split(':')
+        const phonetic = colonSplit[1]
         phonetic = phonetic.substring(1, phonetic.length - 1)
         console.log(`phonetic: ${phonetic}`)
      })
