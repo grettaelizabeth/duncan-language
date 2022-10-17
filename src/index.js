@@ -16,9 +16,9 @@ function fetchDict(textEntryDiv) {
         console.log('CCC')
         const phonetic = colonSplit[1]
         console.log('DDD')
-        phonetic = phonetic.substring(1, phonetic.length - 1)
+        const trimmedPhonetic = phonetic.substring(1, phonetic.length - 1)
         console.log('EEE')
-        console.log(`phonetic: ${phonetic}`)
+        console.log(`phonetic: ${trimmedPhonetic}`)
      })
      .catch((error) => { dictText = `Could not fetch dictionary: ${error}` });
 }
