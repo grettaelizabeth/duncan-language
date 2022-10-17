@@ -1,7 +1,6 @@
 // textEntryDiv.innerHTML += `${fruitPhonetics}`
 
-function fetchDict() {
-    let dictText = 'still empty';
+function fetchDict(textEntryDiv) {
     fetch('https://api.dictionaryapi.dev/api/v2/entries/en/fruit')
      .then((response) => {
       if (!response.ok) {
@@ -10,12 +9,14 @@ function fetchDict() {
       console.log('A')
       return response.text();
      })
-     .then((text) => { console.log(`BBB ${dictText} BBB ${text} BBB`); dictText += `OHAI ${text} OHAI` })
-     .catch((error) => { console.log('C'); dictText = `Could not fetch dictionary: ${error}` });
-    return dictText
+     .then((text) => {
+        console.log(`BBB`)
+        const myArray = text.split(',')
+        console.log(`CCC ${myArray[1]}`)
+     })
+     .catch((error) => { console.log('D'); dictText = `Could not fetch dictionary: ${error}` });
 }
 
 let textEntryDiv = document.getElementById('text-entry')
 textEntryDiv.innerHTML += '<p> frog and toad </p>'
-let fullText = fetchDict()
-textEntryDiv.innerHTML += `<p> ${fullText} </p>`
+fetchDict()
