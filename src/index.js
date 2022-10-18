@@ -17,6 +17,8 @@ function fetchDict(english, outputDiv) {
      .catch((error) => { dictText = `Could not fetch dictionary: ${error}` });
 }
 
-let english = document.getElementById('english')
-let outputDiv = document.getElementById('output')
-fetchDict(english, outputDiv)
+function translate() {
+    let english = document.getElementById('english')
+    let outputDiv = document.getElementById('output')
+    fetchDict(english, outputDiv)
+}
