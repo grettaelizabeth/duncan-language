@@ -24,7 +24,8 @@
        .catch((error) => { dictText = `Could not fetch dictionary: ${error}` });
        }
 
-       function translate() {
+       function translate(event) {
+         event.preventDefault();
          console.log('Translating!')
          let english = document.getElementById('english').text()
          console.log(`Input english word is ${english}`)
@@ -32,11 +33,14 @@
          fetchDict(english, outputDiv)
          console.log('Did we fetch that dict?')
        }
+       
+        const form = document.getElementById('theform');
+        form.addEventListener('submit',translate);
       </script>
     </head>
     <body>
       <div id="text-entry">
-        <form onSubmit="translate()">
+        <form id="theform">
           <label for="english">Enter English word or phrase:</label>
           <input type="text" id="english" name="english">
           <input type="submit" id="submit" value="Translate!">
