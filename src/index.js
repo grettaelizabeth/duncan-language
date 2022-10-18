@@ -1,4 +1,5 @@
 function fetchDict(english, outputDiv) {
+    console.log(`Attempting to fetch https://api.dictionaryapi.dev/api/v2/entries/en/${english}`
     fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${english}`)
      .then((response) => {
       if (!response.ok) {
@@ -18,7 +19,7 @@ function fetchDict(english, outputDiv) {
 }
 
 function translate() {
-    let english = document.getElementById('english')
+    let english = document.getElementById('english').text()
     let outputDiv = document.getElementById('output')
     fetchDict(english, outputDiv)
 }
