@@ -39,7 +39,7 @@
        function translate(event) {
          event.preventDefault();
          console.log('Translating!')
-         let english = document.getElementById('english').text()
+         let english = document.getElementById('english').value
          console.log(`Input english word is ${english}`)
          let outputDiv = document.getElementById('output')
          fetchDict(english, outputDiv)
