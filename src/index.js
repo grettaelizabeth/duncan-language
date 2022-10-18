@@ -19,7 +19,10 @@ function fetchDict(english, outputDiv) {
 }
 
 function translate() {
+    console.log('Translating!')
     let english = document.getElementById('english').text()
+    console.log(`Input english word is ${english}`)
     let outputDiv = document.getElementById('output')
     fetchDict(english, outputDiv)
+    console.log('Did we fetch that dict?')
 }
