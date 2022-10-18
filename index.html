@@ -3,6 +3,18 @@
     <head>
       <meta charset="utf-8">
       <title>Duncan's Language Translator</title>
+    </head>
+    <body>
+      <div id="text-entry">
+        <form id="theform">
+          <label for="english">Enter English word or phrase:</label>
+          <input type="text" id="english" name="english">
+          <input type="submit" id="submit" value="Translate!">
+        </form>
+      </div><br>
+      <div id="output">
+      </div>
+      
       <script>
         function fetchDict(english, outputDiv) {
           console.log(`Attempting to fetch https://api.dictionaryapi.dev/api/v2/entries/en/${english}`)
@@ -37,16 +49,5 @@
         const form = document.getElementById('theform');
         form.addEventListener('submit',translate);
       </script>
-    </head>
-    <body>
-      <div id="text-entry">
-        <form id="theform">
-          <label for="english">Enter English word or phrase:</label>
-          <input type="text" id="english" name="english">
-          <input type="submit" id="submit" value="Translate!">
-        </form>
-      </div><br>
-      <div id="output">
-      </div>
     </body>
 </html>
