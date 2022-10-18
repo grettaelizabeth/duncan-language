@@ -3,17 +3,15 @@
     <head>
       <meta charset="utf-8">
       <title>Duncan's Language Translator</title>
-      <script defer src="src/index.js" charset="utf-8"></script>
     </head>
     <body>
       <div id="text-entry">
-        Enter English word or phrase:
-        <form>
+        <form method="POST" action="src/index.js" onSubmit="translate()">
           <label for="english">Enter English word or phrase:</label>
           <input type="text" id="english" name="english">
+          <input type="submit" id="submit" value="Translate!">
         </form>
       </div><br>
-      <button id="translate">Translate!</button>
       <div id="output">
       </div>
     </body>
