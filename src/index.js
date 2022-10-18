@@ -1,5 +1,5 @@
-function fetchDict(textEntryDiv) {
-    fetch('https://api.dictionaryapi.dev/api/v2/entries/en/fruit')
+function fetchDict(english, outputDiv) {
+    fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${english}`)
      .then((response) => {
       if (!response.ok) {
        throw new Error(`HTTP error: ${response.status}`);
@@ -12,12 +12,11 @@ function fetchDict(textEntryDiv) {
         const phonetic = colonSplit[1]
         const trimmedPhonetic = phonetic.substring(2, phonetic.length - 2)
         console.log(`phonetic: ${trimmedPhonetic}`)
-        textEntryDiv.innerHTML += `<p> Phonetic: ${trimmedPhonetic} </p>`
-        textEntryDiv.innerHTML += `<p> BLARG </p>`
+        outputDiv.innerHTML += `<p> Phonetic: ${trimmedPhonetic} </p>`
      })
      .catch((error) => { dictText = `Could not fetch dictionary: ${error}` });
 }
 
-let textEntryDiv = document.getElementById('text-entry')
-textEntryDiv.innerHTML += '<p> frog and toad </p>'
-fetchDict(textEntryDiv)
+let english = document.getElementById('english')
+let outputDiv = document.getElementById('output')
+fetchDict(english, outputDiv)
