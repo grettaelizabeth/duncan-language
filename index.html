@@ -17,6 +17,9 @@
       
       <script>
         function convertToRoman(phonetic, outputDiv) {
+          console.log(`phonetic length is ${phonetic.length}`)
+          const chars = [...phonetic]
+          console.log(`chars length is ${chars.length}`)
           for (let i = 0; i < phonetic.length; i++) {
             console.log(`Scanning position ${i}`)
             // is there a two-character match?
