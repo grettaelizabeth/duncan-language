@@ -17,12 +17,13 @@
       
       <script>
         function convertToRoman(phonetic, outputDiv) {
+          console.log("Converting!")
           for (let j = 0; j < phonetic.length; j++) {
-            const char = phonetic.subsbtr(j, j+1)
+            const char = phonetic.substr(j, j+1)
             console.log(`At position ${j} we have ${char}`)
           }
                      
-          
+          console.log("No seriously, converting!")
           for (let i = 0; i < phonetic.length; i++) {
             console.log(`Scanning position ${i}`)
             // is there a two-character match?
