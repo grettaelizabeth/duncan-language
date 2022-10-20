@@ -19,7 +19,7 @@
         function convertToRoman(phonetic, outputDiv) {
           const chars = [...phonetic]
           for (let j = 0; j < chars.length; j++) {
-            const char = chars.slice(j).join("")
+            const char = chars.slice(j, j+1).join("")
             console.log(`At position ${j} we have ${char}`)
           }
                      
