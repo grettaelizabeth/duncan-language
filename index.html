@@ -7,15 +7,85 @@
     <body>
       <div id="text-entry">
         <form id="theform">
-          <label for="english">Enter English word or phrase:</label>
-          <input type="text" id="english" name="english">
-          <input type="submit" id="submit" value="Translate!">
+          <p><label for="english">Enter English word or phrase:</label></p>
+          <p><input type="text" id="english" name="english"></p>
+          <p><input type="submit" id="submit" value="Translate!"></p>
         </form>
       </div><br>
       <div id="output">
       </div>
       
       <script>
+        function convertToRoman(phonetic, outputDiv) {
+          Array roman = Array()
+          for (int i = 0; i < phonetic.length; i++) {
+            console.log(`Scanning position ${i}`)
+            // is there a two-character match?
+            if (i < phonetic.length - 1) {
+               const twochar = phonetic.substr(i, i+2)
+               i++
+               switch (twochar) {
+                 case 'ʌɪ':
+                   console.log('matched ʌɪ')
+                    break;
+                 case 'uː':
+                   console.log('matched u:')
+                   break;
+                 case 'eɪ':
+                   console.log('matched eɪ')
+                   break;
+                 case 'ɔː':
+                   console.log('matched ɔː')
+                   break;
+                 case 'iː':
+                   console.log('matched iː')
+                   break;
+                 case 'o:':
+                 case 'ɐ̟ʉ':
+                 case 'əʊ':
+                   console.log('matched one of the complicated long o sounds')
+                   break;
+                 case 'aʊ':
+                   console.log('matched aʊ')
+                   break;
+                 case 'ɛʊ':
+                   console.log('matched ɛʊ')
+                   break;
+                 case 'e:':
+                   console.log('matched e:')
+                   break;
+                 case 'a:':
+                   console.log('matched a:')
+                   break;
+                 case 'tʃ':
+                   console.log('matched tʃ')
+                   break;
+                 case 'dʒ':
+                   console.log('matched dʒ')
+                   break;
+                 case 'ks':
+                   console.log('matched ks')
+                   break;
+                 default:
+                   console.log('Did not match any two-character sequences')
+                   i--
+               }
+            }
+            
+            // is there a one-character match?
+            switch (phonetic[i]) {
+              case '(':
+              case ')':
+              case 'ˈ':
+              case 'ˌ':
+                console.log('Skipped unimportant character')
+                break;
+              default:
+                console.log(`matched ${phonetic[i]}`)
+            }
+          }
+        }
+        
         function fetchDict(english, outputDiv) {
           console.log(`Attempting to fetch https://api.dictionaryapi.dev/api/v2/entries/en/${english}`)
           fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${english}`)
@@ -32,6 +102,7 @@
            const trimmedPhonetic = phonetic.substring(2, phonetic.length - 2)
            console.log(`phonetic: ${trimmedPhonetic}`)
            outputDiv.innerHTML += `<p> Phonetic: ${trimmedPhonetic} </p>`
+           convertToRoman(trimmedPhonetic, outputDiv)
         })
        .catch((error) => { dictText = `Could not fetch dictionary: ${error}` });
        }
