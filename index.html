@@ -35,18 +35,18 @@
             if (uppercase.includes(char)) {
               const doubled = char.toLowerCase() + char.toLowerCase()
               console.log(`Filename: ${doubled}.jpg`)
-              ilOutputDiv += `<img src=\"${doubled}.jpg\">`
+              ilOutputDiv.innerHTML += `<img src=\"${doubled}.jpg\">`
               continue;
             }
             const lowercase = 'aeiounmbpdtgkvfszhwyrlcj'
             if (lowercase.includes(char)) {
               console.log(`Filename: ${char}.jpg`)
-              ilOutputDiv += `<img src=\"${char}.jpg\">`
+              ilOutputDiv.innerHTML += `<img src=\"${char}.jpg\">`
               continue;
             }
             console.log(`Unexpected character ${char}`)
           }
-          console.log(`ilOutputDiv is now ${ilOutputDiv}`)
+          console.log(`output is now ${ilOutputDiv.innerHTML}`)
         }
         
         function makeImage(event) {
