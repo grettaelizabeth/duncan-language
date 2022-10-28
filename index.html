@@ -14,8 +14,33 @@
       </div><br>
       <div id="output">
       </div>
+      <hr>
+      <div id="il-entry">
+        <form id="ilform">
+          <p><label for="il">Enter Intermediate Language word:</label></p>
+          <p><input type="text" id="il" name="il"></p>
+          <p><input type="submit" id="il-submit" value="Make Image!"></p>
+        </form>
+      </div><br>
+      <div id="il-output">
+      </div>
+      
       
       <script>
+        function produceImage(il, ilOutputDiv) {
+          console.log('Producing Image!')
+        }
+        
+        function makeImage(event) {
+           event.preventDefault();
+           console.log('Making Image!')
+           let il = document.getElementById('il').value
+           console.log(`Input IL word is ${il}`)
+           let ilOutputDiv = document.getElementById('il-output')
+           produceImage(il, ilOutputDiv)
+           console.log('Done Making Image')
+        }
+        
         function convertToRoman(phonetic, outputDiv) {
           console.log("Converting!")
           for (let j = 0; j < phonetic.length; j++) {
@@ -124,6 +149,8 @@
          console.log('Did we fetch that dict?')
        }
        
+        const form = document.getElementById('ilform');
+        form.addEventListener('submit',makeImage);
         const form = document.getElementById('theform');
         form.addEventListener('submit',translate);
       </script>
