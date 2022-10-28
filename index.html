@@ -5,6 +5,12 @@
       <title>Duncan's Language Translator</title>
     </head>
     <body>
+      <style>
+        img {
+          max-height: 225px;
+          width: auto;
+        }
+      </style>
       <div id="text-entry">
         <form id="theform">
           <p><label for="english">Enter English word or phrase:</label></p>
@@ -35,13 +41,13 @@
             if (uppercase.includes(char)) {
               const doubled = char.toLowerCase() + char.toLowerCase()
               console.log(`Filename: ${doubled}.jpg`)
-              ilOutputDiv.innerHTML += `<img src=\"${doubled}.jpg\" style=\"height:225px;\">`
+              ilOutputDiv.innerHTML += `<img src=\"${doubled}.jpg\">`
               continue;
             }
             const lowercase = 'aeiounmbpdtgkvfszhwyrlcj'
             if (lowercase.includes(char)) {
               console.log(`Filename: ${char}.jpg`)
-              ilOutputDiv.innerHTML += `<img src=\"${char}.jpg\" style=\"height:225px;\">`
+              ilOutputDiv.innerHTML += `<img src=\"${char}.jpg\">`
               continue;
             }
             console.log(`Unexpected character ${char}`)
