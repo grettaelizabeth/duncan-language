@@ -29,6 +29,21 @@
       <script>
         function produceImage(il, ilOutputDiv) {
           console.log('Producing Image!')
+          for (let i = 0; i < il.length; i++) {
+            const char = il[i]
+            const uppercase = 'AEIOUQNTHJS'
+            if (uppercase.contains(char)) {
+              const doubled = char.toLowerCase() + char.toLowerCase()
+              console.log(`Filename: ${doubled}.jpg`)
+              continue;
+            }
+            const lowercase = 'aeiounmbpdtgkvfszhwyrlcj'
+            if (lowercase.contains(char)) {
+              console.log(`Filename: ${char}.jpg`)
+              continue;
+            }
+            console.log(`Unexpected character ${char}`)
+          }
         }
         
         function makeImage(event) {
