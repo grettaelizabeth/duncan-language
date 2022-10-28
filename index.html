@@ -32,13 +32,13 @@
           for (let i = 0; i < il.length; i++) {
             const char = il[i]
             const uppercase = 'AEIOUQNTHJS'
-            if (uppercase.contains(char)) {
+            if (uppercase.includes(char)) {
               const doubled = char.toLowerCase() + char.toLowerCase()
               console.log(`Filename: ${doubled}.jpg`)
               continue;
             }
             const lowercase = 'aeiounmbpdtgkvfszhwyrlcj'
-            if (lowercase.contains(char)) {
+            if (lowercase.includes(char)) {
               console.log(`Filename: ${char}.jpg`)
               continue;
             }
