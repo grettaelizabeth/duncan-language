@@ -35,13 +35,13 @@
             if (uppercase.includes(char)) {
               const doubled = char.toLowerCase() + char.toLowerCase()
               console.log(`Filename: ${doubled}.jpg`)
-              ilOutputDiv.innerHTML += `<img src=\"${doubled}.jpg\">`
+              ilOutputDiv.innerHTML += `<img src=\"${doubled}.jpg\" height=225>`
               continue;
             }
             const lowercase = 'aeiounmbpdtgkvfszhwyrlcj'
             if (lowercase.includes(char)) {
               console.log(`Filename: ${char}.jpg`)
-              ilOutputDiv.innerHTML += `<img src=\"${char}.jpg\">`
+              ilOutputDiv.innerHTML += `<img src=\"${char}.jpg\" height=225>`
               continue;
             }
             console.log(`Unexpected character ${char}`)
