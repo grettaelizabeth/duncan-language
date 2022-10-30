@@ -18,21 +18,12 @@
           text-align: center;
         }
         .typeheader {
-          background-color="#ffcf4f";
+          background-color: "#ffcf4f";
           font-weight: bold;
         }
       </style>
-      <div id="text-entry">
-        <form id="theform">
-          <p><label for="english">Enter English word or phrase:</label></p>
-          <p><input type="text" id="english" name="english"></p>
-          <p><input type="submit" id="submit" value="Translate!"></p>
-        </form>
-      </div><br>
-      <div id="output">
-      </div>
-      <hr>
-      Intermediate Language key:
+
+      <p>Intermediate Language key:</p>
       <table>
         <tr>
           <th>English Sound</th>
@@ -316,119 +307,9 @@
            produceImage(il, ilOutputDiv)
            console.log('Done Making Image')
         }
-        
-        function convertToRoman(phonetic, outputDiv) {
-          console.log("Converting!")
-          for (let j = 0; j < phonetic.length; j++) {
-            const char = phonetic.substr(j, j+1)
-            console.log(`At position ${j} we have ${char}`)
-          }
-                     
-          console.log("No seriously, converting!")
-          for (let i = 0; i < phonetic.length; i++) {
-            console.log(`Scanning position ${i}`)
-            // is there a two-character match?
-            if (i < phonetic.length - 1) {
-               const twochar = phonetic.substr(i, i+2)
-               console.log(`Potential twochar is ${twochar}`)
-               i++
-               switch (twochar) {
-                 case 'ʌɪ':
-                   console.log('matched ʌɪ')
-                    break;
-                 case 'uː':
-                   console.log('matched u:')
-                   break;
-                 case 'eɪ':
-                   console.log('matched eɪ')
-                   break;
-                 case 'ɔː':
-                   console.log('matched ɔː')
-                   break;
-                 case 'iː':
-                   console.log('matched iː')
-                   break;
-                 case 'o:':
-                 case 'ɐ̟ʉ':
-                 case 'əʊ':
-                   console.log('matched one of the complicated long o sounds')
-                   break;
-                 case 'aʊ':
-                   console.log('matched aʊ')
-                   break;
-                 case 'ɛʊ':
-                   console.log('matched ɛʊ')
-                   break;
-                 case 'e:':
-                   console.log('matched e:')
-                   break;
-                 case 'a:':
-                   console.log('matched a:')
-                   break;
-                 case 'tʃ':
-                   console.log('matched tʃ')
-                   break;
-                 case 'dʒ':
-                   console.log('matched dʒ')
-                   break;
-                 case 'ks':
-                   console.log('matched ks')
-                   break;
-                 default:
-                   console.log('Did not match any two-character sequences')
-                   i--
-               }
-            }
-            
-            // is there a one-character match?
-            switch (phonetic[i]) {
-              case '(':
-              case ')':
-              case 'ˈ':
-              case 'ˌ':
-                console.log('Skipped unimportant character')
-                break;
-              default:
-                console.log(`matched ${phonetic[i]}`)
-            }
-          }
-        }
-        
-        function fetchDict(english, outputDiv) {
-          console.log(`Attempting to fetch https://api.dictionaryapi.dev/api/v2/entries/en/${english}`)
-          fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${english}`)
-           .then((response) => {
-             if (!response.ok) {
-               throw new Error(`HTTP error: ${response.status}`);
-             }
-           return response.text();
-           })
-           .then((text) => {
-           const commaSplit = text.split(',')
-           const colonSplit = commaSplit[1].split(':')
-           const phonetic = colonSplit[1]
-           const trimmedPhonetic = phonetic.substring(2, phonetic.length - 2)
-           console.log(`phonetic: ${trimmedPhonetic}`)
-           outputDiv.innerHTML += `<p> Phonetic: ${trimmedPhonetic} </p>`
-           convertToRoman(trimmedPhonetic, outputDiv)
-        })
-       .catch((error) => { dictText = `Could not fetch dictionary: ${error}` });
-       }
 
-       function translate(event) {
-         event.preventDefault();
-         console.log('Translating!')
-         let english = document.getElementById('english').value
-         console.log(`Input english word is ${english}`)
-         let outputDiv = document.getElementById('output')
-         fetchDict(english, outputDiv)
-         console.log('Did we fetch that dict?')
-       }
-       
         const ilform = document.getElementById('ilform');
         ilform.addEventListener('submit',makeImage);
-        const form = document.getElementById('theform');
-        form.addEventListener('submit',translate);
       </script>
     </body>
 </html>
