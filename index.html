@@ -262,6 +262,12 @@
           <td>dʒ</td>
           <td>j</td>
         </tr>
+        <tr>
+          <td>x</td>
+          <td>mix</td>
+          <td>ks</td>
+          <td>ks</td>
+        </tr>
       </table>
       <hr>
       <div id="il-entry">
@@ -277,35 +283,30 @@
       
       <script>
         function produceImage(il, ilOutputDiv) {
-          console.log('Producing Image!')
+          ilOutputDiv.innerHTML = ''
           for (let i = 0; i < il.length; i++) {
             const char = il[i]
             const uppercase = 'AEIOUQNTHJS'
             if (uppercase.includes(char)) {
               const doubled = char.toLowerCase() + char.toLowerCase()
-              console.log(`Filename: ${doubled}.jpg`)
               ilOutputDiv.innerHTML += `<img src=\"${doubled}.jpg\">`
               continue;
             }
             const lowercase = 'aeiounmbpdtgkvfszhwyrlcj'
             if (lowercase.includes(char)) {
-              console.log(`Filename: ${char}.jpg`)
               ilOutputDiv.innerHTML += `<img src=\"${char}.jpg\">`
               continue;
             }
             console.log(`Unexpected character ${char}`)
           }
-          console.log(`output is now ${ilOutputDiv.innerHTML}`)
         }
         
         function makeImage(event) {
            event.preventDefault();
-           console.log('Making Image!')
            let il = document.getElementById('il').value
            console.log(`Input IL word is ${il}`)
            let ilOutputDiv = document.getElementById('il-output')
            produceImage(il, ilOutputDiv)
-           console.log('Done Making Image')
         }
 
         const ilform = document.getElementById('ilform');
