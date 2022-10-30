@@ -174,10 +174,10 @@
         <tr>
           <td colspan="4" class="typeheader">Nasals</td>
           <td></td>
-          <td>ye</td>
-          <td>yes</td>
-          <td>j</td>
-          <td>y</td>
+          <td>l</td>
+          <td>light</td>
+          <td>l</td>
+          <td>l</td>
         </tr>
         <tr>
           <td>n</td>
@@ -185,10 +185,7 @@
           <td>n</td>
           <td>n</td>
           <td></td>
-          <td>l</td>
-          <td>light</td>
-          <td>l</td>
-          <td>l</td>
+          <td colspan="4" class="typeheader">Combos</td>
         </tr>
         <tr>
           <td>m</td>
@@ -196,7 +193,10 @@
           <td>m</td>
           <td>m</td>
           <td></td>
-          <td colspan="4" class="typeheader">Combos</td>
+          <td>ch</td>
+          <td>chin</td>
+          <td>tʃ</td>
+          <td>c</td>
         </tr>
         <tr>
           <td>ng</td>
@@ -204,18 +204,18 @@
           <td>ŋ</td>
           <td>N</td>
           <td></td>
-          <td>ch</td>
-          <td>chin</td>
-          <td>tʃ</td>
-          <td>c</td>
-        </tr>
-        <tr>
-          <td colspan="4" class="typeheader">Plosives</td>
-          <td></td>
           <td>g</td>
           <td>gin</td>
           <td>dʒ</td>
           <td>j</td>
+        </tr>
+        <tr>
+          <td colspan="4" class="typeheader">Plosives</td>
+          <td></td>
+          <td>x</td>
+          <td>mix</td>
+          <td>ks</td>
+          <td>ks</td>
         </tr>
         <tr>
           <td>b</td>
@@ -223,10 +223,6 @@
           <td>b</td>
           <td>b</td>
           <td></td>
-          <td>x</td>
-          <td>mix</td>
-          <td>ks</td>
-          <td>ks</td>
         </tr>
         <tr>
           <td>p</td>
@@ -282,7 +278,7 @@
               ilOutputDiv.innerHTML += `<img src=\"${doubled}.jpg\">`
               continue;
             }
-            const lowercase = 'aeiounmbpdtgkvfszhwyrlcj'
+            const lowercase = 'aeiounmbpdtgkvfszhwrlcj'
             if (lowercase.includes(char)) {
               ilOutputDiv.innerHTML += `<img src=\"${char}.jpg\">`
               continue;
