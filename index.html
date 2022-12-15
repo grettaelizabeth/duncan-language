@@ -260,7 +260,7 @@
         </form>
       </div><br>
       <div>
-        <canvas id="outputCanvas" height="30">
+        <canvas id="outputCanvas" height="30" width="800">
         </canvas>
       </div>
       
@@ -280,7 +280,7 @@
             if (charIndex >= 0) {
               image = uppercaseImages[charIndex];
               width = Math.floor(image.width / 16.67);
-              outputCanvas.width = xOffset + width;
+              //outputCanvas.width = xOffset + width;
               outputCanvas.getContext("2d").drawImage(image, xOffset, 0, width, 30);
               console.log(`Letter is ${char} and canvas width is ${outputCanvas.width} and xOffset is ${xOffset} and width is ${width}`);
               xOffset += width;
@@ -292,7 +292,7 @@
             if (charIndex >= 0) {
               image = lowercaseImages[charIndex];
               width = Math.floor(image.width / 16.67);
-              outputCanvas.width = xOffset + width;
+              //outputCanvas.width = xOffset + width;
               outputCanvas.getContext("2d").drawImage(image, xOffset, 0, width, 30);
               console.log(`Letter is ${char} and canvas width is ${outputCanvas.width} and xOffset is ${xOffset} and width is ${width}`);
               xOffset += width;
