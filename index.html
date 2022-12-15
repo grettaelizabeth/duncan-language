@@ -5,7 +5,7 @@
       <title>Duncan's Language Translator</title>
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     </head>
-    <body>
+    <body onload="preloadMyImages();">
       <style>
         img {
           max-height: 50px;
@@ -312,6 +312,22 @@
 
         const ilform = document.getElementById('ilform');
         ilform.addEventListener('submit',makeImage);
+        
+        function preloadMyImages() {
+            const uppercase = 'AEIOUQNTHJS'
+            for (let i = 0; i < uppercase.length; i++) {
+                const char = uppercase[i];
+                const doubled = char.toLowerCase() + char.toLowerCase()
+                charImage = new Image();
+                charImage.src = `${doubled}.png`
+            }
+            const lowercase = 'aeiounmbpdtgkvfszhrlcj'
+            for (let i = 0; i < lowercase.length; i++) {
+                const char = lowercase[i];
+                charImage = new Image();
+                charImage.src = `${char}.png`
+            }
+        }
       </script>
     </body>
 </html>
