@@ -283,7 +283,7 @@
                 outputCanvas.getContext("2d").drawImage(charImage, xOffset, 0, width, 30);
                 console.log(`Canvas width is ${outputCanvas.width} and xOffset is ${xOffset} and width is ${width}`);
                 xOffset += width;
-              }
+              });
               continue;
             }
             const lowercase = 'aeiounmbpdtgkvfszhrlcj'
@@ -296,7 +296,7 @@
                 outputCanvas.getContext("2d").drawImage(charImage, xOffset, 0, width, 30);
                 console.log(`Canvas width is ${outputCanvas.width} and xOffset is ${xOffset} and width is ${width}`);
                 xOffset += width;
-              }
+              });
               continue;
             }
             console.log(`Unexpected character ${char}`)
