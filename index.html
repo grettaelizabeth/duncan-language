@@ -276,7 +276,7 @@
           for (let i = 0; i < il.length; i++) {
             const char = il[i]
             const uppercase = 'AEIOUQNTHJS'
-            let charIndex = uppercase.indexOf(char);
+            charIndex = uppercase.indexOf(char);
             if (charIndex >= 0) {
               image = uppercaseImages[charIndex];
               width = Math.floor(image.width / 16.67);
@@ -288,7 +288,7 @@
             continue;
        
             const lowercase = 'aeiounmbpdtgkvfszhrlcj'
-            let charIndex = lowercase.indexOf(char);
+            charIndex = lowercase.indexOf(char);
             if (charIndex >= 0) {
               image = lowercaseImages[charIndex];
               width = Math.floor(image.width / 16.67);
