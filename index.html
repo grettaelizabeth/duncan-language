@@ -266,6 +266,9 @@
       
       
       <script>
+        let uppercaseImages = new Array();
+        let lowercaseImages = new Array();
+        
         function produceImage(il, outputCanvas) {
           const outputImage = new Image();
           xOffset = 0;
@@ -273,32 +276,28 @@
           for (let i = 0; i < il.length; i++) {
             const char = il[i]
             const uppercase = 'AEIOUQNTHJS'
-            if (uppercase.includes(char)) {
-              const doubled = char.toLowerCase() + char.toLowerCase()
-              charImage = new Image();
-              charImage.src = `${doubled}.png`
-              //charImage.addEventListener("load", (e) => {
-                width = Math.floor(charImage.width / 16.67);
-                outputCanvas.width = xOffset + width;
-                outputCanvas.getContext("2d").drawImage(charImage, xOffset, 0, width, 30);
-                console.log(`Letter is ${char} and canvas width is ${outputCanvas.width} and xOffset is ${xOffset} and width is ${width}`);
-                xOffset += width;
-              //});
-              continue;
+            let charIndex = uppercase.indexOf(char);
+            if (charIndex >= 0) {
+              image = uppercaseImages[charIndex];
+              width = Math.floor(image.width / 16.67);
+              outputCanvas.width = xOffset + width;
+              outputCanvas.getContext("2d").drawImage(image, xOffset, 0, width, 30);
+              console.log(`Letter is ${char} and canvas width is ${outputCanvas.width} and xOffset is ${xOffset} and width is ${width}`);
+              xOffset += width;
+            }
+            continue;
             }
             const lowercase = 'aeiounmbpdtgkvfszhrlcj'
-            if (lowercase.includes(char)) {
-              charImage = new Image();
-              charImage.src = `${char}.png`
-              //charImage.addEventListener("load", (e) => {
-                width = Math.floor(charImage.width / 16.67);
-                outputCanvas.width = xOffset + width;
-                outputCanvas.getContext("2d").drawImage(charImage, xOffset, 0, width, 30);
-                console.log(`Letter is ${char} and canvas width is ${outputCanvas.width} and xOffset is ${xOffset} and width is ${width}`);
-                xOffset += width;
-              //});
-              continue;
+            let charIndex = lowercase.indexOf(char);
+            if (charIndex >= 0) {
+              image = lowercaseImages[charIndex];
+              width = Math.floor(image.width / 16.67);
+              outputCanvas.width = xOffset + width;
+              outputCanvas.getContext("2d").drawImage(image, xOffset, 0, width, 30);
+              console.log(`Letter is ${char} and canvas width is ${outputCanvas.width} and xOffset is ${xOffset} and width is ${width}`);
+              xOffset += width;
             }
+            continue;
             console.log(`Unexpected character ${char}`)
           }
         }
@@ -320,12 +319,14 @@
                 const doubled = char.toLowerCase() + char.toLowerCase()
                 charImage = new Image();
                 charImage.src = `${doubled}.png`
+                uppercaseImages.push(charImage);
             }
             const lowercase = 'aeiounmbpdtgkvfszhrlcj'
             for (let i = 0; i < lowercase.length; i++) {
                 const char = lowercase[i];
                 charImage = new Image();
                 charImage.src = `${char}.png`
+                lowercaseImages.push(charImage);
             }
         }
       </script>
