@@ -278,7 +278,7 @@
               charImage = new Image();
               charImage.src = `${doubled}.png`
               width = Math.floor(charImage.width / 16.67);
-              outputCanvas.setWidth(xOffset + width);
+              outputCanvas.width = xOffset + width;
               outputCanvas.getContext("2d").drawImage(charImage, xOffset, 0, width, 30);
               xOffset += width;
               continue;
@@ -288,7 +288,7 @@
               charImage = new Image();
               charImage.src = `${char}.png`
               width = Math.floor(charImage.width / 16.67);
-              outputCanvas.setWidth(xOffset + width);
+              outputCanvas.width = xOffset + width;
               outputCanvas.getContext("2d").drawImage(charImage, xOffset, 0, width, 30);
               xOffset += width;
               continue;
