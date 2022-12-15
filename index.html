@@ -265,18 +265,26 @@
       
       <script>
         function produceImage(il, ilOutputDiv) {
-          ilOutputDiv.innerHTML = ''
+          const outputImage = new Image();
+          xOffset = 0;
+          
           for (let i = 0; i < il.length; i++) {
             const char = il[i]
             const uppercase = 'AEIOUQNTHJS'
             if (uppercase.includes(char)) {
               const doubled = char.toLowerCase() + char.toLowerCase()
-              ilOutputDiv.innerHTML += `<img src=\"${doubled}.jpg\">`
+              charImage = new Image();
+              charImage.src = `${doubled}.png`
+              drawImage(charImage, xOffset, 0);
+              xOffset += charImage.width;
               continue;
             }
             const lowercase = 'aeiounmbpdtgkvfszhrlcj'
             if (lowercase.includes(char)) {
-              ilOutputDiv.innerHTML += `<img src=\"${char}.jpg\">`
+              charImage = new Image();
+              charImage.src = `${char}.png`
+              drawImage(charImage, xOffset, 0);
+              xOffset += charImage.width;
               continue;
             }
             console.log(`Unexpected character ${char}`)
