@@ -284,8 +284,8 @@
               outputCanvas.getContext("2d").drawImage(image, xOffset, 0, width, 30);
               console.log(`Letter is ${char} and canvas width is ${outputCanvas.width} and xOffset is ${xOffset} and width is ${width}`);
               xOffset += width;
+              continue;
             }
-            continue;
        
             const lowercase = 'aeiounmbpdtgkvfszhrlcj'
             charIndex = lowercase.indexOf(char);
@@ -296,8 +296,8 @@
               outputCanvas.getContext("2d").drawImage(image, xOffset, 0, width, 30);
               console.log(`Letter is ${char} and canvas width is ${outputCanvas.width} and xOffset is ${xOffset} and width is ${width}`);
               xOffset += width;
+              continue;
             }
-            continue;
             console.log(`Unexpected character ${char}`)
           }
         }
