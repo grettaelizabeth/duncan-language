@@ -281,7 +281,7 @@
                 width = Math.floor(charImage.width / 16.67);
                 outputCanvas.width = xOffset + width;
                 outputCanvas.getContext("2d").drawImage(charImage, xOffset, 0, width, 30);
-                console.log(`Canvas width is ${outputCanvas.width} and xOffset is ${xOffset} and width is ${width}`);
+                console.log(`Letter is ${char} and canvas width is ${outputCanvas.width} and xOffset is ${xOffset} and width is ${width}`);
                 xOffset += width;
               });
               continue;
@@ -294,7 +294,7 @@
                 width = Math.floor(charImage.width / 16.67);
                 outputCanvas.width = xOffset + width;
                 outputCanvas.getContext("2d").drawImage(charImage, xOffset, 0, width, 30);
-                console.log(`Canvas width is ${outputCanvas.width} and xOffset is ${xOffset} and width is ${width}`);
+                console.log(`Letter is ${char} and canvas width is ${outputCanvas.width} and xOffset is ${xOffset} and width is ${width}`);
                 xOffset += width;
               });
               continue;
