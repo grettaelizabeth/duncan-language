@@ -259,12 +259,14 @@
           <p><input type="submit" id="il-submit" value="Make Image!"></p>
         </form>
       </div><br>
-      <div id="il-output">
+      <div>
+        <canvas id="outputCanvas" height="500">
+        </canvas>
       </div>
       
       
       <script>
-        function produceImage(il, ilOutputDiv) {
+        function produceImage(il, outputCanvas) {
           const outputImage = new Image();
           xOffset = 0;
           
@@ -275,7 +277,7 @@
               const doubled = char.toLowerCase() + char.toLowerCase()
               charImage = new Image();
               charImage.src = `${doubled}.png`
-              drawImage(charImage, xOffset, 0);
+              outputCanvas.getContext("2d").drawImage(charImage, xOffset, 0);
               xOffset += charImage.width;
               continue;
             }
@@ -283,7 +285,7 @@
             if (lowercase.includes(char)) {
               charImage = new Image();
               charImage.src = `${char}.png`
-              drawImage(charImage, xOffset, 0);
+              outputCanvas.getContext("2d").drawImage(charImage, xOffset, 0);
               xOffset += charImage.width;
               continue;
             }
@@ -294,8 +296,8 @@
         function makeImage(event) {
            event.preventDefault();
            let il = document.getElementById('il').value
-           let ilOutputDiv = document.getElementById('il-output')
-           produceImage(il, ilOutputDiv)
+           let outputCanvas = document.getElementById('outputCanvas').value
+           produceImage(il, outputCanvas)
         }
 
         const ilform = document.getElementById('ilform');
