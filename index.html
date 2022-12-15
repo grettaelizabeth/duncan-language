@@ -277,18 +277,20 @@
               const doubled = char.toLowerCase() + char.toLowerCase()
               charImage = new Image();
               charImage.src = `${doubled}.png`
-              console.log(`Loading image ${charImage.src}`)
-              outputCanvas.getContext("2d").drawImage(charImage, xOffset, 0);
-              xOffset += charImage.width;
+              width = Math.floor(charImage.width / 16.67);
+              outputCanvas.setWidth(xOffset + width);
+              outputCanvas.getContext("2d").drawImage(charImage, xOffset, 0, width, 30);
+              xOffset += width;
               continue;
             }
             const lowercase = 'aeiounmbpdtgkvfszhrlcj'
             if (lowercase.includes(char)) {
               charImage = new Image();
               charImage.src = `${char}.png`
-              console.log(`Loading image ${charImage.src}`)
-              outputCanvas.getContext("2d").drawImage(charImage, xOffset, 0);
-              xOffset += charImage.width;
+              width = Math.floor(charImage.width / 16.67);
+              outputCanvas.setWidth(xOffset + width);
+              outputCanvas.getContext("2d").drawImage(charImage, xOffset, 0, width, 30);
+              xOffset += width;
               continue;
             }
             console.log(`Unexpected character ${char}`)
